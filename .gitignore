@@ -1,0 +1,12 @@
+# Vivado Project junk
+*.cache/
+*.hw/
+*.sim/
+*.runs/
+*.ip_user_files/
+.Xil/
+
+# Vivado Log and Journal files (generated every run)
+*.log
+*.jou
+*.str
