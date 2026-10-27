@@ -67,6 +67,7 @@ input wire[31:0] memory_data
     wire [4:0] alu_sel;
     wire a;
     wire b;
+    wire [31:0] feedback;
    control_unit_pipelined MAIN_C(
    .clk(clk),
    .k(a),
@@ -84,6 +85,7 @@ input wire[31:0] memory_data
    .write_memory(write),
    .calc_data(data_val),
    .write_cu(CU),
+   .feedback(feedback),
    .instruction_address_out(jump_ADDRESS),
    .data_out(mem_data)
    );
@@ -103,7 +105,7 @@ input wire[31:0] memory_data
    .sel(alu_sel),
    .k(a),
    .l(b),
-   .feedback_data(mem_data),
+   .feedback_data(feedback),
    .shift_count(data_B),
    .shift_index(data_B),
    .alu_enable(alu_EN),

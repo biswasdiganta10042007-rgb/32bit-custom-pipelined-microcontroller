@@ -24,7 +24,7 @@ module control_mux(
  
  HLT=1'b0;
  JUMP=1'b1;
- WRITE=1'b0;
+ WRITE=1'b1;
  alu_enable=1'b0;
  ddr_enable=1'b0;
  port_enable=1'b0;
@@ -33,6 +33,7 @@ module control_mux(
  case(mux_select)
  4'b0000:begin
  JUMP=1'b1;
+ WRITE=1'b1;
  end
 
  4'b0110:begin
@@ -49,7 +50,7 @@ module control_mux(
  end
  end
  4'b1111:begin
- WRITE=1'b1;
+ WRITE=1'b0;
  end
  4'b1101:begin
  ddr_enable=1'b1;
@@ -60,6 +61,7 @@ module control_mux(
  end
  default:begin
  JUMP=1'b1;
+ WRITE=1'b1;
  end
  endcase
  

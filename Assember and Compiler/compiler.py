@@ -102,7 +102,7 @@ class CustomCompiler:
                     cond_asm = self.decode_condition(line)
                     block_stack.append({
                         'type': 'WHILE', 'cond_asm': cond_asm,
-                        'start_pc': self.program_counter, 'body': []
+                        'start_pc': self.program_counter+1, 'body': []
                     })
                     self.program_counter += 4
                     continue
@@ -118,11 +118,11 @@ class CustomCompiler:
                     if finished_block['type'] == "IF":
                         jump_target = self.program_counter
                         block_asm.append(finished_block['cond_asm'])
-                        block_asm.append(f"JUMP {jump_target}\nNOP 0 0 0 0\nNOP 0 0 0 0")
+                        block_asm.append(f"JUMP {jump_target+1}\nNOP 0 0 0 0\nNOP 0 0 0 0")
                         block_asm.extend(finished_block['body'])
 
                     elif finished_block['type'] == "WHILE":
-                        jump_target = self.program_counter + 3
+                        jump_target = self.program_counter + 4
                         block_asm.append(finished_block['cond_asm'])
                         block_asm.append(f"JUMP {jump_target}\nNOP 0 0 0 0\nNOP 0 0 0 0")
                         block_asm.extend(finished_block['body'])

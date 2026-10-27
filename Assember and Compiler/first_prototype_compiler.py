@@ -206,7 +206,7 @@ with open(r"C:\Users\Diganta Biswas\OneDrive\microcontroller testing\program.txt
                    k = k + 1
                if_block(line.strip())
            elif if_blk!="":
-                   if_blk = if_blk + "JUMP " + str(k) + "\n" + "NOP 0 0 0 0" + "\n" + "NOP 0 0 0 0" + "\n"
+                   if_blk = if_blk + "JUMP " + str(k+1) + "\n" + "NOP 0 0 0 0" + "\n" + "NOP 0 0 0 0" + "\n"
 
                    f2.write(if_blk+final_string)
                    count=k
@@ -227,8 +227,8 @@ with open(r"C:\Users\Diganta Biswas\OneDrive\microcontroller testing\program.txt
                    z=z+1
                loop_block(line.strip())
            elif loop_blk!="":
-                   loop_blk=loop_blk+"JUMP " + str(z+3) + "\n" + "NOP 0 0 0 0" + "\n" + "NOP 0 0 0 0" + "\n"
-                   final_loop+="JUMP " + str(count) + "\n" + "NOP 0 0 0 0" + "\n" + "NOP 0 0 0 0" + "\n"
+                   loop_blk=loop_blk+"JUMP " + str(z+4) + "\n" + "NOP 0 0 0 0" + "\n" + "NOP 0 0 0 0" + "\n"
+                   final_loop+="JUMP " + str(count+1) + "\n" + "NOP 0 0 0 0" + "\n" + "NOP 0 0 0 0" + "\n"
                    f2.write(loop_blk + final_loop)
 
                    count = z+3

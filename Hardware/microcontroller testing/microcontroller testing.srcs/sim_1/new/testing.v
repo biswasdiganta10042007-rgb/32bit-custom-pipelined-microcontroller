@@ -56,10 +56,13 @@ module tb_top_assembly;
         
         // 5. Let the simulation run for a safe window
         #1000;
+         $writememh("updated_data.mem", uut.D.memory);
+
         
         $finish;
     end
-
+    
+    
     // ---------------------------------------------------------
     // Waveform Trace Debug Monitor
     // ---------------------------------------------------------

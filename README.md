@@ -84,6 +84,7 @@ endwhile
 * important point: space should be there after every variable number and operator
 * Example: int a=30 or b=c+d would not work 
 * the correct way is : int a = 30 or b = c + d
+* the first first line should be a dummy variable like ( int dummy = 0 ) and the use od that variable should be avoided as the internal processor needs a dummy variable for reset and halt.
 # LIMITATIONS
 1. Every variable used must be initialized to some value before use and direct use of numbers(integers and floating point numerals cannot be done).
 2. Floating point numerals which will be used as operands must be of only two decimals places or less and has to be less than (511.99)
